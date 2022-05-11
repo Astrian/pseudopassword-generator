@@ -1,7 +1,5 @@
 <template>
-  <div class="main">
-    <h1>虚词密码生成器</h1>
-  </div>
+  
 </template>
 
 <script>
