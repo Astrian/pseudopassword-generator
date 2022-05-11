@@ -21,11 +21,11 @@
             </div>
             <div class="field" v-if="!randomwordlength">
               <label for="wordlength">每个虚词有多长？</label>
-              <input id="wordlength" type="number" min="5" max="10" :value="6" @change="change">
+              <input id="wordlength" type="number" min="5" max="10" :value="wordlength" @change="change">
             </div>
             <div class="field">
               <label for="wordcount">由多少个虚词组成？</label>
-              <input id="wordcount" type="number" min="3" max="12" :value="5" @change="change">
+              <input id="wordcount" type="number" min="3" max="12" :value="wordcount" @change="change">
             </div>
             <div class="field">
               <label for="worddivider">虚词之间用什么符号分割？</label>
@@ -76,7 +76,7 @@ export default {
       let result = ""
       let divider = ["-", "$", "0", "_"]
       for (let i = 0; i < this.wordcount; i++) {
-        if (i!== 0 ) {
+        if (i !== 0 ) {
           if (this.worddivider === 0) {
             result += this.customdivider
           } else {
