@@ -153,6 +153,7 @@ export default {
   padding: 30px;
   cursor: pointer;
   border-radius: 4px;
+  line-break: anywhere;
 }
 .result-addon {
   display: flex;
