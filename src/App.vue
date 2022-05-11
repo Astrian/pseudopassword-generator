@@ -42,6 +42,14 @@
               <input id="customdivider" maxlength="1" placeholder="在此输入一个字符，留空代表不分割" @change="change">
             </div>
           </form>
+          <hr>
+          <h2>一些说明</h2>
+          <p>这是一个用于随机生成由虚词组成的密码的工具。</p>
+          <p>「虚词」（pesudoword）是指本身不是有意义英语单词、但拼写上符合发音规则的单词。这种单词拥有一定随机性，但更容易被人（短期地）记住。</p>
+          <p>在家用 WLAN 热点部署过程中，如果使用 <a href="https://zh.wikipedia.org/wiki/WPA" target="_blank">WPA2-Personal（WPA2-PSK）</a>加密模式，其安全性与密码随机性相关。但过于随机的字符串难以手动输入，因此兼具随机性和「可念性」的虚词密码较为适合作为 Wi-Fi 密码使用。</p>
+          <p>本工具使用包 <a href="https://www.npmjs.com/package/pseudoword" target="_blank">pseudoword</a> 来生成密码，全过程皆由您的设备完成。生成的密码不会发送至任何服务器，也不会被保存。您可以前往<a href="https://github.com/Astrian/pseudopassword-generator" target="_blank">本项目仓库</a>进行代码审计。</p>
+          <hr>
+          <p class="footer">Made by Astrian<br><a href="https://www.beian.miit.gov.cn/" target="_blank">粤 ICP 备 16028008 号 - 1</a></p>
         </b-col>
       </b-row>
     </b-container>
@@ -193,5 +201,12 @@ button {
 button:active {
   box-shadow: inset 0px 4px 12px -4px rgba(0, 0, 0, 0.219);
   background-color: rgb(46, 134, 192);
+}
+.footer {
+  color: gray;
+  font-size: 12px;
+}
+.footer a {
+  color: gray;
 }
 </style>
