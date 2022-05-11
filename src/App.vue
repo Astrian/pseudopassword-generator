@@ -2,7 +2,7 @@
   <div id="app">
     <b-container>
       <b-row align-h="center">
-        <b-col cols="6">
+        <b-col cols-md="6">
           <h1>虚词密码生成器</h1>
           <hr>
           <div class="result" @click="copy">
