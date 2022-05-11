@@ -16,16 +16,21 @@
           <h2>生成设置</h2>
           <form @submit.prevent="generate">
             <div class="field field-checkbox">
-              <input type="checkbox" id="randomwordlength" :checked="true" @change="change" :true-value="true" :false-value="false">
-              <label for="randomwordlength" class="checkboxlabel">密码中的虚词长度不定</label>
+              <div class="checkbox-body">
+                <input type="checkbox" id="randomwordlength" :checked="true" @change="change" :true-value="true" :false-value="false">
+                <label for="randomwordlength" class="checkboxlabel">虚词长度不定</label>
+              </div>
+              <span class="helptext">选中后，虚词长度将会在 3 至 8 之间随机。</span>
             </div>
             <div class="field" v-if="!randomwordlength">
               <label for="wordlength">每个虚词有多长？</label>
-              <input id="wordlength" type="number" min="5" max="10" :value="wordlength" @change="change">
+              <input id="wordlength" type="number" :value="wordlength" @change="change">
+              <span class="helptext">每个虚词至少要由三个字母组成。</span>
             </div>
             <div class="field">
               <label for="wordcount">由多少个虚词组成？</label>
-              <input id="wordcount" type="number" min="3" max="12" :value="wordcount" @change="change">
+              <input id="wordcount" type="number" :value="wordcount" @change="change">
+              <span class="helptext">至少需要 3 个虚词组成密码。</span>
             </div>
             <div class="field">
               <label for="worddivider">虚词之间用什么符号分割？</label>
@@ -63,9 +68,9 @@ export default {
   name: 'App',
   data() {
     return {
-      wordlength: 6,
+      wordlength: 5,
       randomwordlength: true,
-      wordcount: 5,
+      wordcount: 4,
       worddivider: 1,
       customdivider: "",
       generatedpassword: ""
@@ -84,7 +89,7 @@ export default {
           }
         }
         if (this.randomwordlength) {
-          result += pseudoword(Math.floor(Math.random() * 10) + 5)
+          result += pseudoword(Math.floor(Math.random() * 5) + 3)
         } else {
           result += pseudoword(this.wordlength)
         }
@@ -95,14 +100,14 @@ export default {
       let id = sth.target.id
       if (id === "wordlength") {
         let value = parseInt(sth.target.value)
-        if (isNaN(value) || value > 10 || value < 5) {
-          return
+        if (isNaN(value) || value < 3) {
+          value = 3
         }
         this.wordlength = value
       } else if (id === "wordcount") {
         let value = parseInt(sth.target.value)
-        if (isNaN(value) || value > 12 || value < 3) {
-          return
+        if (isNaN(value) || value < 3) {
+          value = 3
         }
         this.wordcount = value
       } else if (id === "worddivider") {
@@ -163,15 +168,18 @@ export default {
   flex-direction: column;
   margin: 20px 0;
 }
-.field-checkbox {
+.field .helptext {
+  color: gray;
+  font-size: 12px;
+}
+.field-checkbox .checkbox-body {
   flex-direction: row;
 }
-.field-checkbox input {
+.field-checkbox .checkbox-body input {
   margin-right: 10px;
 }
 .field label {
   font-weight: bold;
-  padding-top: 9px;
 }
 .field label.checkboxlabel {
   font-weight: normal;
@@ -182,6 +190,7 @@ export default {
   background: rgba(0, 0, 0, 0.048);
   border-radius: 4px;
   outline: none;
+  margin-bottom: 5px;
 }
 .field select {
   border: none;
