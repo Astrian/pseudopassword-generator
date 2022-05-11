@@ -39,7 +39,7 @@
                 <option :value="2">美元符号（$）</option>
                 <option :value="3">数字 0</option>
                 <option :value="4">下划线（_）</option>
-                <option :value="0">自定义</option>
+                <option :value="0">自定义（不推荐）</option>
               </select>
             </div>
             <div class="field" v-if="worddivider === 0">
