@@ -89,7 +89,7 @@ export default {
           }
         }
         if (this.randomwordlength) {
-          result += pseudoword(Math.floor(Math.random() * 5) + 3)
+          result += pseudoword(Math.floor(Math.random() * 6) + 3)
         } else {
           result += pseudoword(this.wordlength)
         }
