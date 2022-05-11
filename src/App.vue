@@ -5,7 +5,7 @@
         <b-col cols="6">
           <h1>虚词密码生成器</h1>
           <hr>
-          <div class="result">
+          <div class="result" @click="copy">
             {{generatedpassword}}
           </div>
           <div class="result-addon">
@@ -108,6 +108,14 @@ export default {
         this.randomwordlength = sth.target.checked
       }
       this.generate()
+    },
+    copy() {
+      navigator.clipboard.writeText(this.generatedpassword)
+      .then(() => {
+        alert("密码已被复制。")
+      }).catch(() => {
+        alert("未能成功复制，请尝试手动选中复制。")
+      })
     }
   },
   mounted() {
