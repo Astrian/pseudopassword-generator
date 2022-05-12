@@ -14,6 +14,10 @@
           </div>
           <hr>
           <h2>生成设置</h2>
+          <b-alert show variant="warning" v-if="generatedpassword.length > 63">
+            <b class="warning-title">⚠️ 密码太长</b><br>
+            <span class="warning-content">这个密码长度可能超过 WPA2 加密协议（或其他地方）的密码长度上限。</span>
+          </b-alert>
           <form @submit.prevent="generate">
             <div class="field field-checkbox">
               <div class="checkbox-body">
@@ -139,6 +143,14 @@ export default {
 </script>
 
 <style>
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -218,5 +230,47 @@ button:active {
 }
 .footer a {
   color: gray;
+}
+.warning-title {
+  font-size: 18px;
+}
+.warning-content {
+  font-size: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  html, #app {
+    background-color: #112233;
+    color: rgb(226, 218, 218);
+  }
+
+  .result {
+    color: black;
+  }
+
+  .result-addon span {
+  color: rgba(226, 218, 218, 0.747);
+}
+
+  .field .helptext {
+    color: rgba(226, 218, 218, 0.747);
+  }
+
+  .field input {
+    background: rgba(255, 255, 255, 0.288);
+    color: rgb(226, 218, 218);
+  }
+
+  .field select {
+    background: rgba(255, 255, 255, 0.288);
+    color: rgb(226, 218, 218);
+  }
+
+  .footer, .footer a {
+    color: rgba(226, 218, 218, 0.747);
+  }
+
+  hr {
+    border-color: rgba(226, 218, 218, 0.212);
+  }
 }
 </style>
