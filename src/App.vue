@@ -238,7 +238,7 @@ button:active {
   font-size: 14px;
 }
 @media (prefers-color-scheme: dark) {
-  html, #app {
+  html, body, #app {
     background-color: #112233;
     color: rgb(226, 218, 218);
   }
