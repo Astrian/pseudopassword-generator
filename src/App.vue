@@ -248,8 +248,12 @@ button:active {
   }
 
   .result-addon span {
-  color: rgba(226, 218, 218, 0.747);
-}
+    color: rgba(226, 218, 218, 0.747);
+  }
+
+  a, a:hover {
+    color: rgb(65, 181, 235);
+  }
 
   .field .helptext {
     color: rgba(226, 218, 218, 0.747);
