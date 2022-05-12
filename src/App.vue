@@ -239,7 +239,7 @@ button:active {
 }
 @media (prefers-color-scheme: dark) {
   html, body, #app {
-    background-color: #112233;
+    background-color: #202020;
     color: rgb(226, 218, 218);
   }
 
