@@ -29,7 +29,7 @@
             <div class="field" v-if="!randomwordlength">
               <label for="wordlength">每个虚词有多长？</label>
               <input id="wordlength" type="number" :value="wordlength" @change="change">
-              <span class="helptext">每个虚词至少要由三个字母组成。</span>
+              <span class="helptext">每个虚词至少要由 3 个字母组成。</span>
             </div>
             <div class="field">
               <label for="wordcount">由多少个虚词组成？</label>
